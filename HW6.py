@@ -51,8 +51,10 @@ class Record:
             raise ValueError('Phone number not found')
 
     def find_phone(self, phone_number):
-        found_phones = [phone for phone in self.phones if str(phone) == phone_number]
-        return found_phones     
+        for phone in self.phones:
+            if phone.value == phone_number:
+                return phone
+        return None  
     
 
     def __str__(self):
